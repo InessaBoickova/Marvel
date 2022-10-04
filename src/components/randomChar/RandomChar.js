@@ -1,22 +1,41 @@
 import './randomChar.scss';
-import thor from '../../resources/img/thor.jpeg';
+import MarvelService from '../../services/MarvelService';
 import mjolnir from '../../resources/img/mjolnir.png';
+import { useEffect, useState } from 'react';
 
 const RandomChar = () => {
+    const [char, setChar] = useState({});
+    const {name,description,thumbnail,homepage,wiki} = char;
+
+    const marvelService = new MarvelService();
+
+    const onChatLoaded = (char) =>{
+        setChar({...char});
+    }
+
+    const upDateChar = ()=>{
+        const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000 );
+        marvelService.getCharacter(id).then(onChatLoaded);
+    }
+
+    useEffect(() => {
+        upDateChar();
+    },[])
+
     return (
         <div className="randomchar">
             <div className="randomchar__block">
-                <img src={thor} alt="Random character" className="randomchar__img"/>
+                <img src={thumbnail} alt="Random character" className="randomchar__img"/>
                 <div className="randomchar__info">
-                    <p className="randomchar__name">Thor</p>
+                    <p className="randomchar__name">{name}</p>
                     <p className="randomchar__descr">
-                        As the Norse God of thunder and lightning, Thor wields one of the greatest weapons ever made, the enchanted hammer Mjolnir. While others have described Thor as an over-muscled, oafish imbecile, he's quite smart and compassionate...
+                        {description}
                     </p>
                     <div className="randomchar__btns">
-                        <a href="#" className="button button__main">
+                        <a href={homepage} className="button button__main">
                             <div className="inner">homepage</div>
                         </a>
-                        <a href="#" className="button button__secondary">
+                        <a href={wiki} className="button button__secondary">
                             <div className="inner">Wiki</div>
                         </a>
                     </div>
