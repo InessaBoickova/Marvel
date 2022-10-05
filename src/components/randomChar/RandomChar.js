@@ -12,11 +12,6 @@ const RandomChar = () => {
 
     const marvelService = new MarvelService();
 
-    const onCharLoaded = (char) =>{
-        setChar({...char});
-        setLoading(false)
-    }
-    
     const upDateChar = ()=>{
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000 );
         marvelService
@@ -25,7 +20,11 @@ const RandomChar = () => {
             .catch(OnError);
         setLoading(true)
     }
-
+    const onCharLoaded = (char) =>{
+        setChar({...char});
+        setLoading(false)
+    }
+    
     const OnError = () =>{
         setLoading(false);
         setError(true)
@@ -64,9 +63,13 @@ const RandomChar = () => {
 
 const View = (char) =>{
     const {name,description,thumbnail,homepage,wiki} = char.char;
+    let imgStyle = {'objectFit' : 'cover'};
+    if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
+        imgStyle = {'objectFit' : 'contain'};
+    }
     return (
         <div className="randomchar__block">
-            <img src={thumbnail} alt="Random character" className="randomchar__img"/>
+            <img src={thumbnail} alt="Random character" className="randomchar__img" style={imgStyle}/>
             <div className="randomchar__info">
                 <p className="randomchar__name">{name}</p>
                 <p className="randomchar__descr">
