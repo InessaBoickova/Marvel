@@ -20,9 +20,10 @@ const RandomChar = () => {
     const upDateChar = ()=>{
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000 );
         marvelService
-        .getCharacter(id)
-        .then(onCharLoaded)
-        .catch(OnError);
+            .getCharacter(id)
+            .then(onCharLoaded)
+            .catch(OnError);
+        setLoading(true)
     }
 
     const OnError = () =>{
@@ -52,8 +53,8 @@ const RandomChar = () => {
                 <p className="randomchar__title">
                     Or choose another one
                 </p>
-                <button className="button button__main">
-                    <div className="inner">try it</div>
+                <button className="button button__main" onClick={()=> upDateChar()}>
+                    <div   className="inner">try it</div>
                 </button>
                 <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>
