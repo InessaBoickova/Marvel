@@ -4,7 +4,8 @@ import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import './charList.scss';
 
-const CharList = () => {
+const CharList = (props) => {
+    const {onCharCelected} = props;
     const marvelService = new MarvelService();
     const [loading , setLoading] = useState(true);
     const [error,setError] = useState(false);
@@ -26,14 +27,16 @@ const CharList = () => {
         setLoading(false)
     }
 
-    const elem =  list.map((item, index) =>{
-        let {name,thumbnail} = item;
+    const elem =  list.map((item) =>{
+        let {name,thumbnail,id} = item;
         let imgStyle = {'objectFit' : 'cover'};
         if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
             imgStyle = {'objectFit' : 'unset'};
         }
         return (
-            <li className="char__item" key={index}>
+            <li className="char__item" 
+                key={id}
+                onClick = {()=> onCharCelected(id)}>
                 <img src={thumbnail} alt={item.name} style={imgStyle}/>
                 <div className="char__name">{name}</div>
              </li>
