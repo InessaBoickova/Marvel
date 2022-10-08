@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/Marvel/static/css/main.d7fd679f.chunk.css",
-    "main.js": "/Marvel/static/js/main.5d7f3777.chunk.js",
-    "main.js.map": "/Marvel/static/js/main.5d7f3777.chunk.js.map",
+    "main.css": "/Marvel/static/css/main.2fb098c3.chunk.css",
+    "main.js": "/Marvel/static/js/main.07b1f234.chunk.js",
+    "main.js.map": "/Marvel/static/js/main.07b1f234.chunk.js.map",
     "runtime-main.js": "/Marvel/static/js/runtime-main.21c96f96.js",
     "runtime-main.js.map": "/Marvel/static/js/runtime-main.21c96f96.js.map",
-    "static/js/2.608adc52.chunk.js": "/Marvel/static/js/2.608adc52.chunk.js",
-    "static/js/2.608adc52.chunk.js.map": "/Marvel/static/js/2.608adc52.chunk.js.map",
+    "static/js/2.f0077eac.chunk.js": "/Marvel/static/js/2.f0077eac.chunk.js",
+    "static/js/2.f0077eac.chunk.js.map": "/Marvel/static/js/2.f0077eac.chunk.js.map",
     "index.html": "/Marvel/index.html",
-    "static/css/main.d7fd679f.chunk.css.map": "/Marvel/static/css/main.d7fd679f.chunk.css.map",
-    "static/js/2.608adc52.chunk.js.LICENSE.txt": "/Marvel/static/js/2.608adc52.chunk.js.LICENSE.txt",
+    "static/css/main.2fb098c3.chunk.css.map": "/Marvel/static/css/main.2fb098c3.chunk.css.map",
+    "static/js/2.f0077eac.chunk.js.LICENSE.txt": "/Marvel/static/js/2.f0077eac.chunk.js.LICENSE.txt",
     "static/media/mjolnir.61f31e18.png": "/Marvel/static/media/mjolnir.61f31e18.png",
-    "static/media/thor.533e3a5e.jpeg": "/Marvel/static/media/thor.533e3a5e.jpeg",
     "static/media/vision.067d4ae1.png": "/Marvel/static/media/vision.067d4ae1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.21c96f96.js",
-    "static/js/2.608adc52.chunk.js",
-    "static/css/main.d7fd679f.chunk.css",
-    "static/js/main.5d7f3777.chunk.js"
+    "static/js/2.f0077eac.chunk.js",
+    "static/css/main.2fb098c3.chunk.css",
+    "static/js/main.07b1f234.chunk.js"
   ]
 }
