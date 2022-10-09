@@ -13,6 +13,7 @@ const App = () => {
     const onCharCelected = (id) =>{
         setSelectedChar(id);
     }
+    
     return (
         <div className="app">
             <AppHeader/>

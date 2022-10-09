@@ -1,4 +1,5 @@
 import { useState,useEffect } from 'react';
+import PropTypes from 'prop-types';
 import MarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
@@ -14,7 +15,6 @@ const CharList = (props) => {
     const [charEnded,setCharEnded] = useState(false);
     const marvelService = new MarvelService();
 
-     
     useEffect(() => {
         onRequest()
     },[])
@@ -45,17 +45,33 @@ const CharList = (props) => {
         setError(true);
         setLoading(false)
     }
+    const itemRefs = [];
 
-    const elem =  list.map((item) =>{
+    const setRef = (ref) => {
+        itemRefs.push(ref);
+    }
+
+    const focusOnItem = (id) => {
+        itemRefs.forEach(item => item.classList.remove('char__item_selected'));
+        itemRefs[id].classList.add('char__item_selected');
+        itemRefs[id].focus();
+    }
+    
+    const elem =  list.map((item,index) =>{
         let {name,thumbnail,id} = item;
         let imgStyle = {'objectFit' : 'cover'};
         if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
             imgStyle = {'objectFit' : 'unset'};
         }
         return (
-            <li className="char__item" 
+            <li className={'char__item'}
                 key={id}
-                onClick = {()=> onCharCelected(id)}>
+                onClick = {()=> {
+                    onCharCelected(id);
+                    focusOnItem(index);}
+                }
+                tabindex = {0}
+                ref={setRef}>
                 <img src={thumbnail} alt={item.name} style={imgStyle}/>
                 <div className="char__name">{name}</div>
              </li>
@@ -81,6 +97,10 @@ const CharList = (props) => {
             </button>
         </div>
     )
+}
+
+CharList.propTypes =  {
+    onCharCelected: PropTypes.func.isRequired,
 }
 
 export default CharList;
