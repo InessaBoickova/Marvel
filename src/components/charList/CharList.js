@@ -6,20 +6,39 @@ import './charList.scss';
 
 const CharList = (props) => {
     const {onCharCelected} = props;
-    const marvelService = new MarvelService();
     const [loading , setLoading] = useState(true);
+    const [newItemLoading , setNewItemLoading] = useState(false);
     const [error,setError] = useState(false);
-    const [list,setList] = useState([])
+    const [list,setList] = useState([]);
+    const [offset,setOffset] = useState(210);
+    const [charEnded,setCharEnded] = useState(false);
+    const marvelService = new MarvelService();
+
      
     useEffect(() => {
-        marvelService.getAllCharacters()
-            .then(onCharListLoaded)
-            .catch(onError)
+        onRequest()
     },[])
 
-    const onCharListLoaded = (charList) => {
-        setList(charList);
+    const onRequest = (offset) => {
+        onCharListLoading();
+        marvelService.getAllCharacters(offset)
+            .then(onCharListLoaded)
+            .catch(onError)
+    }  
+
+    const onCharListLoading = () =>{
+        setNewItemLoading(true);
+    }
+
+    const onCharListLoaded = (newList) => {
+        if(newList.length < 9){
+           setCharEnded(true)
+        }
+
+        setList([...list,...newList]);
         setLoading(false);
+        setNewItemLoading(false);
+        setOffset(offset + 9);
     }
 
     const onError = () => {
@@ -54,7 +73,10 @@ const CharList = (props) => {
                 {spinner}
                 {content}
             </ul>
-            <button className="button button__main button__long">
+            <button className="button button__main button__long"
+                    disabled = {newItemLoading} 
+                    style = {{'display': charEnded ? 'none' : 'block'}}
+                    onClick = {() => onRequest(offset)}>
                 <div className="inner">load more</div>
             </button>
         </div>
