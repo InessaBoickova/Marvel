@@ -43,7 +43,7 @@ const RandomChar = () => {
                     Or choose another one
                 </p>
                 <button className="button button__main" onClick={()=> upDateChar()}>
-                    <div   className="inner">try it</div>
+                    <div className="inner">try it</div>
                 </button>
                 <img src={mjolnir} alt="mjolnir" className="randomchar__decoration"/>
             </div>

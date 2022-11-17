@@ -1,10 +1,10 @@
 import { useState } from "react";
+import Comics from "../comics/comics";
 import AppHeader from "../appHeader/AppHeader";
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
 import CharInfo from "../charInfo/CharInfo";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
-
 import decoration from '../../resources/img/vision.png';
 
 const App = () => {
@@ -16,8 +16,8 @@ const App = () => {
     
     return (
         <div className="app">
-            <AppHeader/>
-            <main>
+            <AppHeader/> 
+            {/* <main>
                <ErrorBoundary>
                     <RandomChar/>
               </ErrorBoundary>
@@ -30,7 +30,8 @@ const App = () => {
                     </ErrorBoundary>
                 </div>
                 <img className="bg-decoration" src={decoration} alt="vision"/>
-            </main>
+            </main>  */}
+           <Comics/>  
         </div>
     )
 }

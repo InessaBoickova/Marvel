@@ -53,7 +53,7 @@ const CharList = ({onCharCelected}) => {
                 onClick = {()=> {
                     onCharCelected(id);
                     focusOnItem(index);}
-                    }
+                }
                 tabindex = {0}
                 ref={el => itemRefs.current[index] = el}>
                 <img src={thumbnail} alt={item.name} style={imgStyle}/>
