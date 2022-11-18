@@ -1,12 +1,11 @@
 import AppBanner from '../appBanner/AppBanner'
 import ComicsList from '../comicsList/ComicsList';
-const Comics = () => {
+
+const ComicsPage = () => {
     return <div>
-        
         <AppBanner/>
-        <ComicsList/>
-        
+        <ComicsList/>    
      </div>
 }
 
-export default Comics;
+export default ComicsPage;

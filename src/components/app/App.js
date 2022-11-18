@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Comics from "../comics/comics";
+import ComicsPage from "../comicsPage/comicsPage";
 import AppHeader from "../appHeader/AppHeader";
 import RandomChar from "../randomChar/RandomChar";
 import CharList from "../charList/CharList";
@@ -31,7 +31,7 @@ const App = () => {
                 </div>
                 <img className="bg-decoration" src={decoration} alt="vision"/>
             </main>  */}
-           <Comics/>  
+           <ComicsPage/>  
         </div>
     )
 }
