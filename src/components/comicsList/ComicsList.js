@@ -1,5 +1,6 @@
 import './comicsList.scss';
 import { useState, useEffect,useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../services/MarvelService';
@@ -48,15 +49,17 @@ const ComicsList = () => {
 
         return (
             <li className='comics__list'
-                    key={id}
+                    key={index}
                     onClick = {()=> {
                         focusOnItem(index);}
                     }
-                    tabindex = {0}
+                    tabIndex = {0}
                     ref={el => itemRefs.current[index] = el}>
-                <img className='comics__item-img' src={thumbnail} alt={title} style={imgStyle}/>
-                <div className="comics__item-name">{title}</div>
-                <div className="comics__item-price">{price}</div>
+               <Link to = {`/comics/${id}`}>
+                    <img className='comics__item-img' src={thumbnail} alt={title} style={imgStyle}/>
+                    <div className="comics__item-name">{title}</div>
+                    <div className="comics__item-price">{price}</div>
+               </Link>
             </li>
         )
     })

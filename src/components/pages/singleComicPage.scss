@@ -1,14 +1,15 @@
 @import '../../style/variables.scss';
 
 .single-comic {
-    margin-top: 50px;
+    margin-top: 60px;
     display: grid;
     grid-template-columns: 293px 550px auto;
     column-gap: 50px;
     align-items: start;
     &__img {
+        margin-top: 10px;
         width: 293px;
-        height: 450px;
+        height: 400px;
     }
     &__name {
         font-weight: bold;
