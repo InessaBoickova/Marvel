@@ -54,7 +54,7 @@ const CharList = ({onCharCelected}) => {
                     onCharCelected(id);
                     focusOnItem(index);}
                 }
-                tabindex = {0}
+                tabIndex = {0}
                 ref={el => itemRefs.current[index] = el}>
                 <img src={thumbnail} alt={item.name} style={imgStyle}/>
                 <div className="char__name">{name}</div>
